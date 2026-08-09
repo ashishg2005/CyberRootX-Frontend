@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
+import Tools from "./pages/Tools";
 import SslChecker from "./pages/SslChecker";
 import HashGenerator from "./pages/HashGenerator";
 import SecurityHeaders from "./pages/SecurityHeaders";
@@ -10,11 +12,37 @@ import WhoisLookup from "./pages/WhoisLookup";
 import IpLookup from "./pages/IpLookup";
 import DnsLookup from "./pages/DnsLookup";
 
+function HashScroll() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+
+      setTimeout(() => {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <HashScroll />
+
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/tools" element={<Tools />} />
+
         <Route path="/url-checker" element={<UrlChecker />} />
         <Route path="/password-checker" element={<PasswordChecker />} />
         <Route path="/whois-lookup" element={<WhoisLookup />} />
@@ -23,9 +51,9 @@ function App() {
         <Route path="/hash-generator" element={<HashGenerator />} />
         <Route path="/ssl-checker" element={<SslChecker />} />
         <Route
-  path="/security-headers"
-  element={<SecurityHeaders />}
-/>
+          path="/security-headers"
+          element={<SecurityHeaders />}
+        />
       </Routes>
     </BrowserRouter>
   );

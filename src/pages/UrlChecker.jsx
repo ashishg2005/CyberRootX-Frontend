@@ -18,9 +18,12 @@ function UrlChecker() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/check-url", {
-        url,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/check-url`,
+        {
+          url,
+        }
+      );
 
       setStats(response.data.stats);
     } catch (err) {
@@ -39,14 +42,16 @@ function UrlChecker() {
       stats.undetected
     : 0;
 
-  const risk = stats
-    ? Math.round(((stats.malicious + stats.suspicious) / total) * 100)
-    : 0;
+  const risk =
+    stats && total > 0
+      ? Math.round(
+          ((stats.malicious + stats.suspicious) / total) * 100
+        )
+      : 0;
 
   return (
     <div className="min-h-screen bg-slate-950 text-white px-6 py-10">
       <div className="max-w-5xl mx-auto">
-
         <h1 className="text-4xl font-bold text-cyan-400">
           🛡️ URL Reputation Checker
         </h1>
@@ -81,7 +86,6 @@ function UrlChecker() {
 
         {stats && (
           <div className="mt-8 bg-slate-900 rounded-2xl border border-slate-700 p-6 shadow-xl">
-
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 {stats.malicious > 0 ? (
@@ -103,7 +107,11 @@ function UrlChecker() {
 
             <div className="w-full h-3 bg-slate-700 rounded-full mt-5 overflow-hidden">
               <div
-                className={stats.malicious > 0 ? "bg-red-500 h-3" : "bg-green-500 h-3"}
+                className={
+                  stats.malicious > 0
+                    ? "bg-red-500 h-3"
+                    : "bg-green-500 h-3"
+                }
                 style={{ width: `${risk}%` }}
               />
             </div>
@@ -113,31 +121,36 @@ function UrlChecker() {
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-
               <div className="bg-slate-800 rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-green-400">{stats.harmless}</p>
+                <p className="text-3xl font-bold text-green-400">
+                  {stats.harmless}
+                </p>
                 <p className="text-gray-400 mt-2">Harmless</p>
               </div>
 
               <div className="bg-slate-800 rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-red-400">{stats.malicious}</p>
+                <p className="text-3xl font-bold text-red-400">
+                  {stats.malicious}
+                </p>
                 <p className="text-gray-400 mt-2">Malicious</p>
               </div>
 
               <div className="bg-slate-800 rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-yellow-400">{stats.suspicious}</p>
+                <p className="text-3xl font-bold text-yellow-400">
+                  {stats.suspicious}
+                </p>
                 <p className="text-gray-400 mt-2">Suspicious</p>
               </div>
 
               <div className="bg-slate-800 rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-white">{stats.undetected}</p>
+                <p className="text-3xl font-bold text-white">
+                  {stats.undetected}
+                </p>
                 <p className="text-gray-400 mt-2">Undetected</p>
               </div>
-
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

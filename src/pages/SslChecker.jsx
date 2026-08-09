@@ -16,15 +16,15 @@ function SslChecker() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/ssl-checker",
+        `${import.meta.env.VITE_API_URL}/api/ssl-checker`,
         { domain }
       );
 
       setResult(response.data.data);
-
     } catch (error) {
       console.error(error);
       alert("SSL Lookup Failed");
+      setResult(null);
     } finally {
       setLoading(false);
     }
@@ -32,7 +32,7 @@ function SslChecker() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white px-6 py-10">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         <h1 className="text-4xl font-bold text-cyan-400">
           🔒 SSL Certificate Checker
@@ -42,7 +42,7 @@ function SslChecker() {
           Check SSL certificate details of any website.
         </p>
 
-        <div className="flex gap-4 mt-8">
+        <div className="flex flex-col md:flex-row gap-4 mt-8">
           <input
             type="text"
             placeholder="google.com"
@@ -53,7 +53,8 @@ function SslChecker() {
 
           <button
             onClick={checkSSL}
-            className="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-xl font-semibold"
+            disabled={loading}
+            className="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-xl font-semibold disabled:opacity-50"
           >
             {loading ? "Checking..." : "Check"}
           </button>
@@ -66,7 +67,7 @@ function SslChecker() {
               SSL Certificate Details
             </h2>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               <p>
                 <strong>Common Name:</strong>{" "}
@@ -80,22 +81,22 @@ function SslChecker() {
 
               <p>
                 <strong>Valid From:</strong>{" "}
-                {result.valid_from}
+                {result.valid_from || "N/A"}
               </p>
 
               <p>
                 <strong>Valid To:</strong>{" "}
-                {result.valid_to}
+                {result.valid_to || "N/A"}
               </p>
 
               <p>
                 <strong>Serial Number:</strong>{" "}
-                {result.serialNumber}
+                {result.serialNumber || "N/A"}
               </p>
 
               <p>
                 <strong>Fingerprint:</strong>{" "}
-                {result.fingerprint}
+                {result.fingerprint || "N/A"}
               </p>
 
             </div>

@@ -16,7 +16,7 @@ function DnsLookup() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/dns-lookup",
+        `${import.meta.env.VITE_API_URL}/api/dns-lookup`,
         {
           domain,
         }
@@ -33,7 +33,7 @@ function DnsLookup() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white px-6 py-10">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         <h1 className="text-4xl font-bold text-cyan-400">
           📡 DNS Lookup
@@ -54,7 +54,8 @@ function DnsLookup() {
 
           <button
             onClick={lookupDns}
-            className="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-xl font-semibold"
+            disabled={loading}
+            className="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-xl font-semibold disabled:opacity-50"
           >
             {loading ? "Loading..." : "Lookup"}
           </button>

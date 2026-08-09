@@ -1,28 +1,47 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 function Navbar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  function goToAbout(e) {
+    e.preventDefault();
+
+    if (location.pathname === "/") {
+      document.getElementById("about")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      navigate("/#about");
+    }
+  }
+
   return (
-    <nav className="bg-slate-950 text-white px-10 py-5 flex justify-between items-center border-b border-slate-800">
-      <div>
-        <h1 className="text-3xl font-bold text-cyan-400">
-          CyberRoot X
-        </h1>
-      </div>
+    <nav className="flex items-center justify-between px-6 md:px-10 py-5 bg-slate-950 border-b border-slate-800">
+      
+      <Link
+        to="/"
+        className="text-2xl font-bold text-cyan-400"
+      >
+        CyberRootX
+      </Link>
 
-      <div className="flex items-center gap-8 text-gray-300">
-        <a href="#" className="hover:text-cyan-400 transition">
+      <div className="flex items-center gap-6 md:gap-8 text-gray-300">
+        
+        <Link
+          to="/"
+          className="hover:text-cyan-400 transition"
+        >
           Home
-        </a>
+        </Link>
 
-        <a href="#" className="hover:text-cyan-400 transition">
-          Tools
-        </a>
-
-        <a href="#" className="hover:text-cyan-400 transition">
+        <button
+          onClick={goToAbout}
+          className="hover:text-cyan-400 transition"
+        >
           About
-        </a>
-
-        <button className="bg-cyan-500 px-5 py-2 rounded-lg hover:bg-cyan-600 transition">
-          Login
         </button>
+
       </div>
     </nav>
   );

@@ -16,13 +16,14 @@ function IpLookup() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/ip-lookup",
+        `${import.meta.env.VITE_API_URL}/api/ip-lookup`,
         {
-          ip: ip,
+          ip,
         }
       );
 
       setResult(response.data.data);
+
     } catch (error) {
       console.error(error);
       alert("IP Lookup Failed.");
@@ -55,7 +56,8 @@ function IpLookup() {
 
           <button
             onClick={lookupIp}
-            className="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-xl font-semibold"
+            disabled={loading}
+            className="bg-cyan-500 hover:bg-cyan-600 px-8 rounded-xl font-semibold disabled:opacity-50"
           >
             {loading ? "Loading..." : "Lookup"}
           </button>
