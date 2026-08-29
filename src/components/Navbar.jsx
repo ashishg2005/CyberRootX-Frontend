@@ -19,12 +19,13 @@ function Navbar() {
   return (
     <nav className="flex items-center justify-between px-6 md:px-10 py-5 bg-slate-950 border-b border-slate-800">
       
-      <Link
-        to="/"
-        className="text-2xl font-bold text-cyan-400"
-      >
-        CyberRootX
-      </Link>
+      <Link to="/" className="flex items-center">
+  <img
+    src="/logo.png"
+    alt="CyberRootX"
+    className="h-12 w-auto object-contain"
+  />
+</Link>
 
       <div className="flex items-center gap-6 md:gap-8 text-gray-300">
         
