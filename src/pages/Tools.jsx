@@ -15,13 +15,14 @@ function Tools() {
             </p>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-3">
-              What Can You Check?
-            </h1>
+  Free Cybersecurity Tools
+</h1>
 
-            <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
-              Explore cybersecurity tools designed to analyze different
-              aspects of websites, domains and networks.
-            </p>
+<p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+  Explore free online cybersecurity tools for URL security,
+  password strength, WHOIS, DNS, IP lookup, SSL certificates,
+  security headers and hash generation.
+</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
