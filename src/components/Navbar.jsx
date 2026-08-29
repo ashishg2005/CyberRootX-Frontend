@@ -21,7 +21,7 @@ function Navbar() {
       
       <Link to="/" className="flex items-center">
   <img
-    src="/logo.png"
+    src="/logo.svg"
     alt="CyberRootX"
     className="h-12 w-auto object-contain"
   />
