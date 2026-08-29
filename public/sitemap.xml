@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://cyber-root-x-frontend.vercel.app/</loc>
   </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/url-checker</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/password-checker</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/whois-lookup</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/dns-lookup</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/ip-lookup</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/hash-generator</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/security-headers</loc>
+  </url>
+
+  <url>
+    <loc>https://cyber-root-x-frontend.vercel.app/ssl-checker</loc>
+  </url>
+
 </urlset>
