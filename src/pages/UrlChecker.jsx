@@ -52,14 +52,18 @@ function UrlChecker() {
   return (
     <div className="min-h-screen bg-slate-950 text-white px-6 py-10">
       <div className="max-w-5xl mx-auto">
+
+        {/* Tool Header */}
         <h1 className="text-4xl font-bold text-cyan-400">
           🛡️ URL Reputation Checker
         </h1>
 
-        <p className="text-gray-400 mt-3">
-          Scan any website using VirusTotal.
+        <p className="text-gray-400 mt-3 leading-relaxed">
+          Check the reputation of a website URL and review security
+          detection results from multiple security vendors.
         </p>
 
+        {/* Scanner */}
         <div className="flex flex-col md:flex-row gap-4 mt-8">
           <input
             type="text"
@@ -78,14 +82,17 @@ function UrlChecker() {
           </button>
         </div>
 
+        {/* Error */}
         {error && (
           <div className="mt-4 bg-red-900/30 border border-red-600 rounded-lg p-3 text-red-300">
             {error}
           </div>
         )}
 
+        {/* Results */}
         {stats && (
           <div className="mt-8 bg-slate-900 rounded-2xl border border-slate-700 p-6 shadow-xl">
+
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 {stats.malicious > 0 ? (
@@ -121,6 +128,7 @@ function UrlChecker() {
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+
               <div className="bg-slate-800 rounded-xl p-4 text-center">
                 <p className="text-3xl font-bold text-green-400">
                   {stats.harmless}
@@ -148,9 +156,143 @@ function UrlChecker() {
                 </p>
                 <p className="text-gray-400 mt-2">Undetected</p>
               </div>
+
             </div>
           </div>
         )}
+
+        {/* Educational Content */}
+        <section className="mt-16 border-t border-slate-800 pt-12">
+
+          <p className="text-cyan-400 font-semibold">
+            URL SECURITY GUIDE
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-bold mt-3">
+            What Is URL Reputation?
+          </h2>
+
+          <p className="text-gray-400 leading-relaxed mt-5">
+            URL reputation refers to security information associated with a
+            website address. Security services can compare URLs against
+            databases and detection systems to identify addresses that may
+            have been associated with malicious, suspicious, phishing, or
+            other harmful activity.
+          </p>
+
+          <p className="text-gray-400 leading-relaxed mt-4">
+            A reputation check can be useful when evaluating an unfamiliar
+            website before interacting with it. However, a clean result does
+            not guarantee that a website is completely safe. Website
+            reputation can change over time, and automated security checks
+            should be considered one part of a broader security assessment.
+          </p>
+
+          <h2 className="text-3xl font-bold mt-12">
+            How the URL Checker Works
+          </h2>
+
+          <p className="text-gray-400 leading-relaxed mt-5">
+            Enter a complete website URL into the checker and start the scan.
+            CyberRootX sends the submitted URL to its security analysis
+            service and displays the available detection statistics returned
+            by the service.
+          </p>
+
+          <p className="text-gray-400 leading-relaxed mt-4">
+            The results are grouped into categories such as harmless,
+            malicious, suspicious, and undetected. The detection information
+            can help users understand how different security vendors have
+            classified the submitted URL.
+          </p>
+
+          <h2 className="text-3xl font-bold mt-12">
+            Understanding the Results
+          </h2>
+
+          <div className="mt-6 space-y-5">
+
+            <div>
+              <h3 className="text-xl font-bold text-green-400">
+                Harmless
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                This category represents security vendors that did not detect
+                the submitted URL as harmful according to their available
+                analysis.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-red-400">
+                Malicious
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                This category indicates that a security vendor identified the
+                URL as potentially malicious. Users should exercise caution
+                when multiple reliable security sources report a threat.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-yellow-400">
+                Suspicious
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                A suspicious classification means that a vendor has identified
+                characteristics that may require additional investigation.
+                Suspicious does not necessarily mean that a website is
+                confirmed to be malicious.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-gray-300">
+                Undetected
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                Undetected means that the available security vendor did not
+                classify the URL as malicious or suspicious in its current
+                analysis. It should not be interpreted as a guarantee of
+                safety.
+              </p>
+            </div>
+
+          </div>
+
+          <h2 className="text-3xl font-bold mt-12">
+            When Should You Check a URL?
+          </h2>
+
+          <p className="text-gray-400 leading-relaxed mt-5">
+            URL reputation checking can be useful when receiving links from
+            unfamiliar websites, unexpected messages, emails, or other online
+            sources. It can provide an additional security signal before
+            visiting a website.
+          </p>
+
+          <p className="text-gray-400 leading-relaxed mt-4">
+            Users should still avoid entering passwords, payment information,
+            or other sensitive data on unfamiliar websites simply because a
+            reputation scan returns a positive result. Good security practice
+            includes checking the website address, using trusted sources, and
+            keeping browsers and security software updated.
+          </p>
+
+          <div className="mt-10 p-5 rounded-xl bg-slate-900 border border-slate-700">
+            <h3 className="text-xl font-bold text-cyan-400">
+              Security Note
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mt-2">
+              CyberRootX results are provided for informational and security
+              awareness purposes. Automated reputation results can contain
+              false positives or false negatives and should not be treated as
+              a definitive security verdict.
+            </p>
+          </div>
+
+        </section>
       </div>
     </div>
   );
