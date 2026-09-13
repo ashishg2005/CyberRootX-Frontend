@@ -170,6 +170,105 @@ function Home() {
         </div>
       </section>
 
+      {/* Cybersecurity Tools Explained */}
+      <section className="bg-slate-950 px-6 py-20 md:px-10">
+        <div className="max-w-5xl mx-auto">
+
+          <p className="text-cyan-400 font-semibold text-center">
+            CYBERSECURITY GUIDE
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-center">
+            Understanding Cybersecurity Tools
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed mt-6 text-center max-w-3xl mx-auto">
+            CyberRootX provides simple online tools that help users understand
+            common website, domain and network security information. Each tool
+            focuses on a specific part of cybersecurity and presents technical
+            information in an easier-to-understand way.
+          </p>
+
+          <div className="mt-12 space-y-8">
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                URL Reputation Checking
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                A URL reputation check can help identify whether a website
+                address has been reported or associated with potentially
+                harmful activity. Reputation information can be useful before
+                visiting an unfamiliar website or sharing sensitive information
+                online.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                DNS Lookup
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                DNS, or Domain Name System, translates domain names into
+                information used by computers to locate online services. DNS
+                records can provide useful information about how a domain is
+                configured and which services are associated with it.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                IP Address Lookup
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                An IP lookup provides information associated with an IP address.
+                This can help users understand the network or hosting environment
+                connected with a particular address. IP geolocation should be
+                treated as an approximate indication rather than an exact
+                physical location.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                SSL Certificate Checking
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                SSL/TLS certificates help establish encrypted connections
+                between browsers and websites. Checking certificate information
+                can help users understand whether a website has a valid
+                certificate and review important certificate details.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                Security Headers
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                HTTP security headers allow websites to communicate important
+                security policies to web browsers. Reviewing these headers can
+                reveal whether commonly recommended browser security controls
+                are configured on a website.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-cyan-400">
+                Password Strength
+              </h3>
+              <p className="text-gray-400 leading-relaxed mt-2">
+                Password strength checking helps users understand characteristics
+                that can make passwords easier or harder to guess. Strong,
+                unique passwords are an important part of protecting online
+                accounts and reducing the risk of unauthorized access.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-800 py-6 text-center">
         <p className="text-gray-500 text-sm">
